@@ -1,0 +1,10 @@
+<div class="container card mt-5">
+    <table class="table table-responsive-md btn-table" *ngIf="precautions && precautions.length">
+      <tbody>
+        <tr *ngFor="let p of precautions">
+          <td class="align-middle pl-0"> {{ p.description }}</td>
+          <td><img src={{p.img}} alt="Smiley face" height="100" width="120"/></td>
+        </tr>
+      </tbody>
+      </table>
+    </div>

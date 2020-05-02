@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-sm navbar-light" style="background-color: #e3f2fd;">
+
+  <a class="navbar-brand" href="#">
+    <img src="assets/flag.png" alt="logo" style="width:40px;">
+  </a>
+  <h1>{{ title }}</h1>
+  <ng-container *ngIf="isAppRoute">
+   <ul class="navbar-nav ml-5">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['dashboard']" routerLinkActive='active'>Dashboard</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['news']" routerLinkActive='active'>Latest News</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['precautions']" routerLinkActive='active'>Precautions</a>
+    </li>
+  </ul> 
+</ng-container>
+<ul class="form-inline my-2 my-lg-0 float-right" *ngIf="isLoggedIn">
+    <li>
+      <button type="button" class="btn btn-dark float-right ml-5" (click)="onclick()">Log Out</button>
+    </li>
+</ul>
+</nav>
+

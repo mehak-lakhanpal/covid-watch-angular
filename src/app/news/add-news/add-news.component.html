@@ -1,0 +1,107 @@
+<div class="card">
+    <div class="card-body">
+      <form novalidate (ngSubmit)="save(newsForm.value)" [formGroup]="newsForm">
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="textTitle">
+            Title
+          </label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="textTitle"
+              type="text"
+              placeholder="Enter Title"
+              formControlName="title"
+              [ngClass]="{
+                'is-invalid':
+                  (newsForm.get('title').touched || newsForm.get('title').dirty) &&
+                  !newsForm.get('title').valid
+              }"
+            />
+            <span class="invalid-feedback">
+              <span *ngIf="newsForm.get('title').errors?.required">
+                Please enter news title.
+              </span>
+              <span *ngIf="newsForm.get('title').errors?.minlength">
+                Title must be longer than 5 characters.
+              </span>
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="textSummary">
+            Summary
+          </label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="textSummary"
+              type="text"
+              placeholder="Enter News Summary"
+              formControlName="summary"
+              [ngClass]="{
+                'is-invalid':
+                (newsForm.get('summary').touched || newsForm.get('summary').dirty) &&
+                !newsForm.get('summary').valid
+              }"
+            />
+            <span class="invalid-feedback">
+              <span *ngIf="newsForm.get('summary').errors?.required">
+                Please enter news summary.
+              </span>
+              <span *ngIf="newsForm.get('summary').errors?.minlength">
+                Summary must be longer than 20 characters.
+              </span>
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="textDescription">
+            Description
+          </label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="textDescription"
+              type="text"
+              placeholder="Enter description"
+              formControlName="description"
+              [ngClass]="{
+                'is-invalid':
+                  (newsForm.get('description').touched ||
+                  newsForm.get('description').dirty) &&
+                  !newsForm.get('description').valid
+              }"
+            />
+            <span class="invalid-feedback">
+              <span *ngIf="newsForm.get('description').errors?.required">
+                Please enter news description.
+              </span>
+              <span *ngIf="newsForm.get('description').errors?.minlength">
+                Description must be longer than 30 characters.
+              </span>
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <div class="offset-md-2 col-md-4">
+            <button
+            class="btn btn-primary"
+              type="submit"
+              [title]="
+                newsForm.valid
+                  ? 'Save your entered data'
+                  : 'Disabled until the form data is valid'
+              "
+              [disabled]="!newsForm.valid"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>  

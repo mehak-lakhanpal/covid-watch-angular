@@ -1,0 +1,27 @@
+<div class="container card mt">
+<table class="table table-striped table-responsive-md btn-table" *ngIf="states && states.length">
+  <thead>
+    <tr>
+      <th class="state">S.No.</th>
+      <th class="state">State Name</th>
+      <th class="total">Total cases</th>
+      <th class="active">Active</th>
+      <th class="rec">Recovered</th>
+      <th class="death">Deaths</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let s of states | slice:1 let i = index">
+      <td class="state">{{i+1}}</td>
+      <td class="state"><a class="text-dark" [routerLink]="['/dashboard/detail', s.statecode]"> {{ s.state }}</a></td>
+      <td class="total">{{ s.confirmed }}</td>
+      <td class="active">{{ s.active }}</td>
+      <td  class="rec">{{ s.recovered }}</td>
+      <td class="death">{{ s.deaths }}</td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+<div class=" row text-center mt-5">
+  <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+  </div>

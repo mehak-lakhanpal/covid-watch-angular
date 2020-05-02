@@ -1,0 +1,14 @@
+
+<div class="container ml-5 mt-5">
+	<div *ngIf="isLoggedIn">
+	<ul class="nav nav-tabs">
+		<li class="nav-item">
+		  <a class="nav-link" [routerLink]="['list']" routerLinkActive='active'>News List</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link" [routerLink]="['add']" routerLinkActive='active'>Add News</a>
+		</li>
+	</ul>
+</div>
+<router-outlet></router-outlet>
+</div>
